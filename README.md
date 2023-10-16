@@ -1,6 +1,6 @@
 # tt-firmware-gs
 
-
+`fw_pack_721daef8.tar.gz` is a package containing the firmware images to flash gs boards using (tt-flash)[https://yyz-gitlab.local.tenstorrent.com/syseng-platform/tt-flash] this is not the day-1 patch but a stable fw version that should be identical to what is currently in the wild.
 
 ## Getting started
 
