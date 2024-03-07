@@ -14,8 +14,14 @@
 ### 80.8.0.0
 - WH: Fix for VM Reset
 
+## Patches
+
+Patch firmware bundles are based off of the latest available firmware with minor modifications to address specific issues. These patches can be found in [`patches`](patches/) .
+
+For specific details on the changes refer to the patches [`README`](patches/README.md).
+
 ## License
-© 2023 Tenstorrent Inc.<br/>
+© 2024 Tenstorrent AI ULC<br/>
 All rights reserved
 
 Redistribution permitted, please see [LICENSE](LICENSE) for details.
