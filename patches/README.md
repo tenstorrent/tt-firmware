@@ -1,23 +1,14 @@
-# tt-firmware
-
-## Official Repository
-[https://github.com/tenstorrent/tt-firmware](https://github.com/tenstorrent/tt-firmware)
+# tt-firmware - patches
+Firmware bundles built off of the latest available firmware release with minor modifications to address specific issues.
 
 ## Available Firmware
 
-| Firmware | 
-| --- | 
-| [`fw_pack-80.8.11.0.tar.gz`](fw_pack-80.8.11.0.tar.gz) | 
-## Release Notes
-
-### 80.8.11.0
-- Based off firmware 80.8.0.0
-  - Workaround to address tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
-    - Reduced Max Frequency from 1000Mhz to 800Mhz
-    - Increased Frequency Margin from 41Mhz to 82 Mhz
+| Firmware | Release Notes |
+| --- | --- | 
+| [`fw_pack-80.8.11.0.tar.gz`](fw_pack-80.8.11.0.tar.gz) | WH - Workaround to address tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968) <ul><li>Adjust V/F Curve</li></ul>
 
 ## License
-© 2023 Tenstorrent Inc.<br/>
+© 2024 Tenstorrent AI ULC<br/>
 All rights reserved
 
 Redistribution permitted, please see [LICENSE](LICENSE) for details.
