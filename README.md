@@ -7,7 +7,7 @@
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.8.0.0.tar.gz`](fw_pack-80.8.0.0.tar.gz) | is a package containing the first combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
+| [`fw_pack-80.8.0.0.fwbundle`](fw_pack-80.8.0.0.fwbundle) | is a package containing the first combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
 
 ## Release Notes
 
