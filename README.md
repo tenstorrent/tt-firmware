@@ -24,12 +24,13 @@ Also power management fw is really boring code. [UMD](https://github.com/tenstor
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.8.0.0.fwbundle`](fw_pack-80.8.0.0.fwbundle) | is a package containing the first combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
+| [`fw_pack-80.9.0.0.fwbundle`](fw_pack-80.9.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
 
 ## Release Notes
 
-### 80.8.0.0
-- WH: Fix for VM Reset
+### 80.9.0.0
+- GS: Correct Max Frequency to 1200MHz 
+- WH: Fix SMBUS issue on N300s
 
 ## Patches
 
