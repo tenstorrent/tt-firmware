@@ -24,19 +24,21 @@ Also power management fw is really boring code. [UMD](https://github.com/tenstor
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.9.0.0.fwbundle`](fw_pack-80.9.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
+| [`fw_pack-80.10.0.0.fwbundle`](fw_pack-80.10.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
 
 ## Release Notes
 
-### 80.9.0.0
-- GS: Correct Max Frequency to 1200MHz 
-- WH: Fix SMBUS issue on N300s
+### 80.10.0.0
+- WH: Pick up fixes from 80.9.3.0 to resolve tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
+  - Increase the operating voltage at max frequency
+  - Enable loadline in voltage regulator to control overshoots
 
-## Patches
 
-Patch firmware bundles are based off of the latest available firmware with minor modifications to address specific issues. These patches can be found in [`patches`](patches/) .
+## Experiments
 
-For specific details on the changes refer to the patches [`README`](patches/README.md).
+Experiment firmware bundles are based off of the latest available firmware with minor modifications to address specific issues. These experiments can be found in [`experiments`](experiments/) .
+
+For specific details on the changes refer to the experiments [`README`](experiments/README.md).
 
 ## License
 © 2024 Tenstorrent AI ULC<br/>
