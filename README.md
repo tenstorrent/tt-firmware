@@ -29,7 +29,7 @@ Also power management fw is really boring code. [UMD](https://github.com/tenstor
 ## Release Notes
 
 ### 80.10.0.0
-- WH: Pick up fixes from 80.9.3.0 to resolve tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
+- WH: Pick up fixes in 80.9.3.0 to resolve tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
   - Increase the operating voltage at max frequency
   - Enable loadline in voltage regulator to control overshoots
 
