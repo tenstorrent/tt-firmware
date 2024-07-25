@@ -5,7 +5,7 @@ Firmware bundles built off of the latest available firmware release with minor m
 
 | Firmware | Release Notes |
 | --- | --- | 
-
+| [`fw_pack-80.10.1.0.fwbundle`](fw_pack-80.10.1.0.fwbundle) | Decrease max AICLK to 900MHz|
 
 ## License
 © 2024 Tenstorrent AI ULC<br/>
