@@ -6,6 +6,7 @@ Firmware bundles built off of the latest available firmware release with minor m
 | Firmware | Release Notes |
 | --- | --- | 
 | [`fw_pack-80.10.1.0.fwbundle`](fw_pack-80.10.1.0.fwbundle) | Decrease max AICLK to 900MHz|
+| [`fw_pack-80.10.2.0.fwbundle`](fw_pack-80.10.2.0.fwbundle) |<ul><li>VR Regulator programming to ensure current is balanced on phases</li><li>ARC workaround to prevent I2C hangs</li></ul>|
 
 ## License
 © 2024 Tenstorrent AI ULC<br/>
