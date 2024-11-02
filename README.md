@@ -24,14 +24,18 @@ Also power management fw is really boring code. [UMD](https://github.com/tenstor
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.10.0.0.fwbundle`](fw_pack-80.10.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs) and Wormhole(wh) boards|
+| [`fw_pack-80.13.0.0.fwbundle`](fw_pack-80.13.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and for the first time Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 80.10.0.0
-- WH: Pick up fixes in 80.9.3.0 to resolve tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
-  - Increase the operating voltage at max frequency
-  - Enable loadline in voltage regulator to control overshoots
+### 80.13.0.0
+- WH: Pick up fixes in 80.10.4.0 to help address tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
+  - VR Regulator Tuning for N150 and N300 boards
+  - Data sanitization on i2c received data
+  - BM APP FW 5.10.0.0 - modified handling of thermal interrupts
+- WH: ETH FW 6.10.0
+- WH: Added support for 6U UBB Galaxy
+- BH: First firmware bundle containing support for Blackhole boards.
 
 
 ## Experiments
