@@ -5,6 +5,7 @@ Firmware bundles built off of the latest available firmware release with minor m
 
 | Firmware | Release Notes |
 | --- | --- | 
+|80.13.1.1| Reduces Fmax to 900MHz for WH cards|
 
 ## License
 © 2024 Tenstorrent AI ULC<br/>
