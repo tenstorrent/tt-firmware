@@ -24,9 +24,12 @@ Also power management fw is really boring code. [UMD](https://github.com/tenstor
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.13.1.0.fwbundle`](fw_pack-80.13.1.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and for the first time Blackhole(bh) boards.|
+| [`fw_pack-80.13.2.0.fwbundle`](fw_pack-80.13.2.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and for the first time Blackhole(bh) boards.|
 
 ## Release Notes
+
+### 80.13.2.0
+- BH: Resolve I2C race condition to improve TT-SMI Reset stability
 
 ### 80.13.1.0
 - BH: Address noc hang caused by disabled blocks on the p100 board
