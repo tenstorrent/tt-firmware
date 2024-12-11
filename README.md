@@ -18,7 +18,7 @@ Tenstorrent products contain IP from third parties, we have agreements with thes
 Therefore releasing the fw source code, in its current form, would require disentangling what we have ownership of vs. what is shared. Effectively requiring us to rewrite it to isolate anything proprietary, so we made the decision to spend the resources to
 guarantee to make what we can of future fw open-source rather than going back to rewrite what we already have.
 
-Also power management fw is really boring code. [UMD](https://github.com/tenstorrent/tt-umd) is where all of the interesting chip programming lives :)
+If you are interested in the extent that applications interact with this firmware, see [UMD](https://github.com/tenstorrent/tt-umd).
 
 ## Available Firmware
 
