@@ -24,24 +24,15 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.13.2.0.fwbundle`](fw_pack-80.13.2.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and for the first time Blackhole(bh) boards.|
+| [`fw_pack-80.14.0.0.fwbundle`](fw_pack-80.14.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 80.13.2.0
-- BH: Resolve I2C race condition to improve TT-SMI Reset stability
-
-### 80.13.1.0
-- BH: Address noc hang caused by disabled blocks on the p100 board
-
-### 80.13.0.0
-- WH: Pick up fixes in 80.10.4.0 to help address tt-metal issue [#4968](https://github.com/tenstorrent-metal/tt-metal/issues/4968)
-  - VR Regulator Tuning for N150 and N300 boards
-  - Data sanitization on i2c received data
-  - BM APP FW 5.10.0.0 - modified handling of thermal interrupts
-- WH: ETH FW 6.10.0
-- WH: Added support for 6U UBB Galaxy
-- BH: First firmware bundle containing support for Blackhole boards.
+### 80.14.0.0
+- BH: 
+  - CMFW 0.8.1
+  - ERISC 0.4.0 support chip to chip 
+  - MRISC 2.3.0 GDDR 14G changes for Micron-E and Samsung Memory 
 
 
 ## Experiments
