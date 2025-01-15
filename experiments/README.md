@@ -5,6 +5,7 @@ Firmware bundles built off of the latest available firmware release with minor m
 
 | Firmware | Release Notes |
 | --- | --- | 
+| 80.14.1.0 | FW Bundle for ONLY Blackhole. Fix for tt-smi reset issue in VM | 
 
 
 ## License
