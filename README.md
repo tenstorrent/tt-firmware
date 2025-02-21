@@ -24,15 +24,21 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.14.0.0.fwbundle`](fw_pack-80.14.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-80.15.0.0.fwbundle`](fw_pack-80.15.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 80.14.0.0
-- BH: 
-  - CMFW 0.8.1
-  - ERISC 0.4.0 support chip to chip 
-  - MRISC 2.3.0 GDDR 14G changes for Micron-E and Samsung Memory 
+### 80.15.0.0
+- BH [p100 p150 p150a p150c]: 
+  - CMFW 0.9.1
+    - Enable Fmax of 1350MHz and PPM
+    - Program VR Registers to fix [invalid telemetry readings](https://github.com/tenstorrent/cloud/issues/3773)
+    - Program VR Settings to support high transient workloads
+  - ERISC 1.0.0
+    - Reduce link speed to 200G to improve chip to chip stability
+  - MRISC 2.5.0
+    - Enable 16G Speed
+    - Updated Memory timings to resolve [BH P150 VMs DRAM mismatches](https://github.com/tenstorrent/tt-metal/issues/17546)
 
 
 ## Experiments
