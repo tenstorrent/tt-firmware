@@ -8,7 +8,7 @@ Firmware bundles built off of the latest available firmware release with minor m
 
 
 ## License
-© 2024 Tenstorrent AI ULC<br/>
+© 2025 Tenstorrent AI ULC<br/>
 All rights reserved
 
 Redistribution permitted, please see [LICENSE](LICENSE) for details.

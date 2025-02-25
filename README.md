@@ -24,21 +24,19 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.15.0.0.fwbundle`](fw_pack-80.15.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-80.16.0.0.fwbundle`](fw_pack-80.16.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 80.15.0.0
-- BH [p100 p150 p150a p150c]: 
-  - CMFW 0.9.1
-    - Enable Fmax of 1350MHz and PPM
-    - Program VR Registers to fix [invalid telemetry readings](https://github.com/tenstorrent/cloud/issues/3773)
-    - Program VR Settings to support high transient workloads
-  - ERISC 1.0.0
-    - Reduce link speed to 200G to improve chip to chip stability
-  - MRISC 2.5.0
-    - Enable 16G Speed
-    - Updated Memory timings to resolve [BH P150 VMs DRAM mismatches](https://github.com/tenstorrent/tt-metal/issues/17546)
+### 80.16.0.0
+- WH [n150, n300, 6U UBB Galaxy]: 
+  - ARC FW 2.31.0
+    - Handshake with BM APP FW for SPI Copy Complete
+  - ERISC 6.12
+    - Changes for 6U UBB Galaxy
+  - BM APP FW 5.12.0.0
+    - Handshake with ARC FW for SPI Copy Complete
+    - Fix for remote chip detection on n300 
 
 
 ## Experiments
@@ -48,7 +46,7 @@ Experiment firmware bundles are based off of the latest available firmware with 
 For specific details on the changes refer to the experiments [`README`](experiments/README.md).
 
 ## License
-© 2024 Tenstorrent AI ULC<br/>
+© 2025 Tenstorrent AI ULC<br/>
 All rights reserved
 
 Redistribution permitted, please see [LICENSE](LICENSE) for details.
