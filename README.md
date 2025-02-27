@@ -28,6 +28,9 @@ If you are interested in the extent that applications interact with this firmwar
 
 ## Release Notes
 
+### 80.16.0.0
+- This firmware was pulled due to a breaking change with tt-topology.
+
 ### 80.15.0.0
 - BH [p100 p150 p150a p150c]: 
   - CMFW 0.9.1
