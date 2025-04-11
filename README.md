@@ -24,24 +24,33 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-80.15.0.0.fwbundle`](fw_pack-80.15.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-80.17.0.0.fwbundle`](fw_pack-80.17.0.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 80.16.0.0
-- This firmware was pulled due to a breaking change with tt-topology.
-
-### 80.15.0.0
+### 80.17.0.0
 - BH [p100 p150 p150a p150c]: 
-  - CMFW 0.9.1
-    - Enable Fmax of 1350MHz and PPM
-    - Program VR Registers to fix [invalid telemetry readings](https://github.com/tenstorrent/cloud/issues/3773)
-    - Program VR Settings to support high transient workloads
+  - CMFW 0.9.3
+    - Corrected telemetry table inadvertently reporting harvested ETH
+    - Fixes for [`vm stability issues`](https://github.com/tenstorrent/tt-metal/issues/18672)
+      - I2C Recovery mechanism if bus is hung.
+      - Reduce PCIe Config Max Payload Size(MPS) to avoid mismatch between USP and DSP after reset in VM
   - ERISC 1.0.0
-    - Reduce link speed to 200G to improve chip to chip stability
   - MRISC 2.5.0
-    - Enable 16G Speed
-    - Updated Memory timings to resolve [BH P150 VMs DRAM mismatches](https://github.com/tenstorrent/tt-metal/issues/17546)
+- WH [n150, n300, 6U Galaxy]
+  - ARC FW 2.32.0
+    - Handshake with BM APP FW for SPI Copy Complete
+    - Increase Minimum Vcore to 800mV.
+      - Improves stability running intensive workloads. [E.g. LoudBox model instability](https://github.com/tenstorrent/cloud/issues/3217)
+    - Increase MVDDQ to 1.38V and GDDRPHY to 0.88V for 6U UBB Galaxy
+    - VR Programming for 6U UBB Galaxy
+  - ERISC 6.14
+    - Tuning for 6U UBB Galaxy
+    - Disable port discovery and routing in base ERISC
+    - MAC/PCS Conifg API for ERISC APP
+  - BM APP FW 5.12.0.0
+    - Handshake with ARC FW for SPI Copy Complete
+    - Fix for remote chip detection on n300
 
 
 ## Experiments
@@ -51,7 +60,7 @@ Experiment firmware bundles are based off of the latest available firmware with 
 For specific details on the changes refer to the experiments [`README`](experiments/README.md).
 
 ## License
-© 2024 Tenstorrent AI ULC<br/>
+© 2025 Tenstorrent AI ULC<br/>
 All rights reserved
 
 Redistribution permitted, please see [LICENSE](LICENSE) for details.
