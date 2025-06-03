@@ -24,43 +24,40 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.3.0.fwbundle`](fw_pack-18.3.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.4.0.fwbundle`](fw_pack-18.4.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 18.3.0
+### 18.4.0
 
-New since [18.2.0](https://github.com/tenstorrent/tt-firmware/tree/v18.2.0)
+New since [18.3.0](https://github.com/tenstorrent/tt-firmware/tree/v18.3.0)
 
-* DMC now reads and sends power (instead of current) from INA228 device to SMC
-  * SMC now uses power reading as input to Total Board Power (TBP) throttler instead of 12 * current
-* DMC support for accessing tca9554a GPIO expanders added
+* DMC now increments a counter for thermal trips and reports the count to SMC
+  * SMC now reports this value in the telemetry table
+  * This counter is reset on PERST
+* Add an SMC message to toggle Tensix resets for testing purposes
 
+### Performance Improvements
 
-### Stability Improvements
-
-* Add I2C handshake between SMC and DMC FW to ensure that initialization messages are received
-* Total Board Power (TBP) throttler parameters have been tuned, and TBP limit is now set in the fwtable to guarantee product definition is followed
-
-## API Changes
-
-### Removed APIs
-
-* Telemetry no longer reports `TAG_INPUT_CURRENT`
-
-### New APIs
-
-* Telemetry now reports `TAG_INPUT_POWER` to replace `TAG_INPUT_CURRENT`
+* Wormhole FW blob updated
+  * SPI bootrom 3.13.0.0
+    * Remove PCIe MPS limit (**Note: tt-kmd >= 1.33 is required**)
+  * CMFW 2.33.0.0
+    * Fix to decrease variation across TMONs at idle
+    * Make therm trip limit a SPI parameter
+    * Backport BH-style telemetry tables
+  * ERISC FW 6.6.15.0
+    * Training improvements for 6U UBB Galaxy
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.2.0 release can be found in [v18.3.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.3.0.md).
+An overview of required and recommended changes to make when migrating from the previous v18.3.0 release can be found in [v18.4.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.4.0.md).
 
 ## Full ChangeLog
 
 View the full ChangeLog at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.2.0...v18.3.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.3.0...v18.4.0
 
 ## Experiments
 
