@@ -24,40 +24,34 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.4.0.fwbundle`](fw_pack-18.4.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.5.0.fwbundle`](fw_pack-18.5.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 18.4.0
+### 18.5.0
 
-New since [18.3.0](https://github.com/tenstorrent/tt-firmware/tree/v18.3.0)
+New since [18.4.0](https://github.com/tenstorrent/tt-firmware/tree/v18.4.0)
 
-* DMC now increments a counter for thermal trips and reports the count to SMC
-  * SMC now reports this value in the telemetry table
-  * This counter is reset on PERST
-* Add an SMC message to toggle Tensix resets for testing purposes
 
-### Performance Improvements
+### Stability Improvements
 
-* Wormhole FW blob updated
-  * SPI bootrom 3.13.0.0
-    * Remove PCIe MPS limit (**Note: tt-kmd >= 1.33 is required**)
-  * CMFW 2.33.0.0
-    * Fix to decrease variation across TMONs at idle
-    * Make therm trip limit a SPI parameter
-    * Backport BH-style telemetry tables
-  * ERISC FW 6.6.15.0
-    * Training improvements for 6U UBB Galaxy
+* Update Blackhole ERISC FW to v1.4.1
+  * Fixed bug in FW where training would stall when enabling training on P300 ports that do not connect
+    outside of the Chip at all
+* Prevent invalid overwrite of DMC init time
+* Automatically recover firmware after hardware CI jobs
+* fan_ctrl: disable initial fan spin-up to 100%
+* pcie: drive perst of cem1 slot when operating in RC mode
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.3.0 release can be found in [v18.4.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.4.0.md).
+An overview of required and recommended changes to make when migrating from the previous v18.4.0 release can be found in [v18.5.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.5.0.md).
 
 ## Full ChangeLog
 
 View the full ChangeLog at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.3.0...v18.4.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.4.0...v18.5.0
 
 ## Experiments
 
