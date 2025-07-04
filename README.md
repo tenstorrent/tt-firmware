@@ -24,34 +24,65 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.5.0.fwbundle`](fw_pack-18.5.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.6.0.fwbundle`](fw_pack-18.6.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 18.5.0
+### 18.6.0
 
-New since [18.4.0](https://github.com/tenstorrent/tt-firmware/tree/v18.4.0)
+New since [18.5.0](https://github.com/tenstorrent/tt-firmware/tree/v18.5.0)
 
+### Zephyr-4.2.0
+
+This release of `tt-zephyr-platforms` begins migrating our application to run on the v4.2.0 release candidate of the Zephyr Real-time Operating System.
+
+A preview of all of the new features in Zephyr v4.2.0 are available
+[here](https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/releases/release-notes-4.2.rst).
+
+### New and Experimental Features
+
+* Enabled PCIe event counters
+
+### Performance Improvements
+
+* Enabled Quad DDR SPI mode to speed up loading cmfw
 
 ### Stability Improvements
 
-* Update Blackhole ERISC FW to v1.4.1
-  * Fixed bug in FW where training would stall when enabling training on P300 ports that do not connect
-    outside of the Chip at all
-* Prevent invalid overwrite of DMC init time
-* Automatically recover firmware after hardware CI jobs
-* fan_ctrl: disable initial fan spin-up to 100%
-* pcie: drive perst of cem1 slot when operating in RC mode
+* Aligned ASIC location definition in the SPI table with that of the telemetry table
+* Update Blackhole ERISC FW to v1.4.2
+  * Updated ASIC location definition to align with SPI table changes
+* Implemented SDIF timeout for PVT sensor read
+* Update Blackhole MRISC FW to v2.8
+  * Added Tuning setting for P300B cards
+  * * dram_ocd_pulldown_offset = 3 (MR2[2:0]) (increase pull down driver strength)
+  * * dram_data_termination_offset = 1 (MR3[2:0]) (decrease DRAM termination)
+
+* Wormhole FW blob updated
+  * CMFW 2.34.0.0
+    * Update voltage regulator settings for n300
+    * Additional verification of voltage regulator programming
+  * ERISC FW 6.7.0.0
+    * Add multi-mesh support for T3K
+    * Fix intermittent static training synchronization failures
+
+### Drivers
+
+* add `tenstorrent,bh-gpio` driver
+* add `tenstorrent,bh-fwtable` driver
+* add `maxim,max6639` driver + tests
+* add `tenstorrent,bh-fwtable` driver + tests
+* add `tenstorrent,bh-clock-control` (PLL) driver + tests
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.4.0 release can be found in [v18.5.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.5.0.md).
+An overview of required and recommended changes to make when migrating from the previous v18.5.0 release can be found in [v18.6.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.6.0.md).
 
 ## Full ChangeLog
 
 View the full ChangeLog at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.4.0...v18.5.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.5.0...v18.6.0
 
 ## Experiments
 
