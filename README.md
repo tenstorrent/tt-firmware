@@ -24,65 +24,90 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.6.0.fwbundle`](fw_pack-18.6.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.7.0.fwbundle`](fw_pack-18.7.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### 18.6.0
-
-New since [18.5.0](https://github.com/tenstorrent/tt-firmware/tree/v18.5.0)
+New since [18.6.0](https://github.com/tenstorrent/tt-firmware/tree/v18.6.0)
 
 ### Zephyr-4.2.0
 
-This release of `tt-zephyr-platforms` begins migrating our application to run on the v4.2.0 release candidate of the Zephyr Real-time Operating System.
+This release of `tt-zephyr-platforms` runs on the latest v4.2.0 release of the Zephyr Real-time Operating System.
 
-A preview of all of the new features in Zephyr v4.2.0 are available
-[here](https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/releases/release-notes-4.2.rst).
+Zephyr v4.2.0 Release Notes are available [here](https://docs.zephyrproject.org/4.2.0/releases/release-notes-4.2.html)
 
 ### New and Experimental Features
 
 * Enabled PCIe event counters
 
-### Performance Improvements
+Major enhancements with this release include:
 
-* Enabled Quad DDR SPI mode to speed up loading cmfw
+[comment]: <> (H3 Performance Improvements, if applicable)
+
+### New and Experimental Features
+
+* Implement aiclk_ppm sweep handler
+
+[comment]: <> (H3 External Project Collaboration Efforts, if applicable)
 
 ### Stability Improvements
 
-* Aligned ASIC location definition in the SPI table with that of the telemetry table
-* Update Blackhole ERISC FW to v1.4.2
-  * Updated ASIC location definition to align with SPI table changes
-* Implemented SDIF timeout for PVT sensor read
-* Update Blackhole MRISC FW to v2.8
-  * Added Tuning setting for P300B cards
-  * * dram_ocd_pulldown_offset = 3 (MR2[2:0]) (increase pull down driver strength)
-  * * dram_data_termination_offset = 1 (MR3[2:0]) (decrease DRAM termination)
+* Reduce Blackhole Galaxy GDDR speed from 16G to 14G
+* Update Wormhole FW blob
+  * CMFW 2.35.0.0
+    * Fix telemetry entry ENABLED_TENSIX_ROW
+    * Add telemetry entries for ASIC_ID_{HIGH,LOW}
 
-* Wormhole FW blob updated
-  * CMFW 2.34.0.0
-    * Update voltage regulator settings for n300
-    * Additional verification of voltage regulator programming
-  * ERISC FW 6.7.0.0
-    * Add multi-mesh support for T3K
-    * Fix intermittent static training synchronization failures
+[comment]: <> (H1 Security vulnerabilities fixed?)
 
-### Drivers
+[comment]: <> (H2 API Changes, if applicable)
 
-* add `tenstorrent,bh-gpio` driver
-* add `tenstorrent,bh-fwtable` driver
-* add `maxim,max6639` driver + tests
-* add `tenstorrent,bh-fwtable` driver + tests
-* add `tenstorrent,bh-clock-control` (PLL) driver + tests
+[comment]: <> (H3 Removed APIs, H3 Deprecated APIs, H3 New APIs, if applicable)
+
+[comment]: <> (UL PCIe)
+[comment]: <> (UL DDR)
+[comment]: <> (UL Ethernet)
+[comment]: <> (UL Telemetry)
+[comment]: <> (UL Debug / Developer Features)
+[comment]: <> (UL Drivers)
+[comment]: <> (UL Libraries)
+
+[comment]: <> (H2 New Samples, if applicable)
+
+[comment]: <> (UL PCIe)
+[comment]: <> (UL DDR)
+[comment]: <> (UL Ethernet)
+[comment]: <> (UL Telemetry)
+[comment]: <> (UL Debug / Developer Features)
+[comment]: <> (UL Drivers)
+[comment]: <> (UL Libraries)
+
+### Other Notable Changes
+
+[comment]: <> (UL PCIe)
+[comment]: <> (UL DDR)
+[comment]: <> (UL Ethernet)
+[comment]: <> (UL Telemetry)
+
+#### Debug / Developer Features
+
+* The `tenstorrent,vuart` virtual PCIe serial device is now the default for console I/O. The virtual uart supports multiple instances, so one instance may be used for console I/O while another instance may be used for e.g. RPC, tracing, coredump, profiling, or other functionality. [Demo](https://github.com/tenstorrent/tt-zephyr-platforms/blob/f138f5b24c766a0088cbb88bc04ba3d31acf43f2/doc/img/shell.gif).
+* Zephyr's tracing subsystem may now be used over the virtual uart. For now it is limited to a an app [overlay](https://github.com/tenstorrent/tt-zephyr-platforms/blob/v18.7.0/app/smc/tracing.conf) but plans are in place to integrate this feature into production firmware with support for dynamically configurable tracing. [Demo](https://github.com/tenstorrent/tt-zephyr-platforms/blob/f138f5b24c766a0088cbb88bc04ba3d31acf43f2/doc/img/tracing.gif)
+
+[comment]: <> (UL Drivers)
+[comment]: <> (UL Libraries)
+
+[comment]: <> (H2 New Boards, if applicable)
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.5.0 release can be found in [v18.6.0 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.6.0.md).
+An overview of required and recommended changes to make when migrating from the previous v18.6.0 release can be found in [v18.7 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/blob/v18.7.0/doc/release/migration-guide-18.7.md).
 
 ## Full ChangeLog
 
-View the full ChangeLog at the link below.
+The full ChangeLog from the previous v18.6.0 release can be found at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.5.0...v18.6.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.6.0...v18.7.0
 
 ## Experiments
 
