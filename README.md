@@ -24,26 +24,21 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.9.0.fwbundle`](fw_pack-18.9.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.10.0.fwbundle`](fw_pack-18.10.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-### Performance Improvements
-
-* Load spi flash images using temporary buffer rather than large statically allocated SRAM buffer
-  * Represents a reduction of CSM memory usage by approximately 60 kiB since approximately v18.7.0
-
-[comment]: <> (H3 New and Experimental Features, if applicable)
-[comment]: <> (H3 External Project Collaboration Efforts, if applicable)
-
 ### Stability Improvements
 
-* Update Blackhole ERISC FW to v1.5.0
-  * Updated some eth training sequencing to help with Galaxy UBB products
-  * Added CALL_ACK postcode in eth msg mailboxes to show message has been read and is being processed
-  * Added fence instructions in eth msg mailboxes to invalidate L1 cache when polling
-  * Changed default training mode to AUTO mode from ANLT, will result in manual eq on Galaxy QSFP ports
-  * ETH msg FEATURE_ENABLE: allows for enable/disablement of eth fw features
+* Update Blackhole ERISC FW to v1.6.0
+  * Added eth_flush_icache to flush instruction cache for SYS-1944 - function is 2048 NOP instructions unrolled
+  * New function pointer in eth_api_table: eth_flush_icache_ptr for aforementioned eth_flush_icache
+  * Increased eth code size allocation by 8KB, code now starts at 0x70000
+  * Enhanced training flow and retrain logic, links should now more reliably train up
+  * Enabled interrupts in erisc fw: now snapshots and clears
+  * Added live retraining when check_link_status() detects link down
+  * ETH msg LINK_UP_CHECK: fast check to only update rx_link_up field of eth_live_status
+* Setup FW table to lower ETH train speeds for Galaxy products to 200G, other products stay 400G
 
 [comment]: <> (H1 Security vulnerabilities fixed?)
 
@@ -83,13 +78,13 @@ If you are interested in the extent that applications interact with this firmwar
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.8.0 release can be found in [v18.9 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.9.md).
+An overview of required and recommended changes to make when migrating from the previous v18.9.0 release can be found in [v18.10 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.10.md).
 
 ## Full ChangeLog
 
-The full ChangeLog from the previous v18.8.0 release can be found at the link below.
+The full ChangeLog from the previous v18.9.0 release can be found at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.8.0...v18.9.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.9.0...v18.10.0
 
 ## Experiments
 
