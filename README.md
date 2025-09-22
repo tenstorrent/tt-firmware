@@ -24,67 +24,104 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-18.10.0.fwbundle`](fw_pack-18.10.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-18.11.0.fwbundle`](fw_pack-18.11.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
+These release notes are also published in HTML at the URL below.
+
+https://docs.tenstorrent.com/tt-zephyr-platforms/release/release-notes-18.11.html
+
+<!-- H3 Performance Improvements, if applicable -->
+
+### Performance Improvements
+
+* soc: tt_blackhole: enable hardware floating-point in SMC FW
+
+<!-- H3 New and Experimental Features, if applicable -->
+<!-- H3 External Project Collaboration Efforts, if applicable -->
+
+<!-- H3 Stability Improvements, if applicable -->
+
 ### Stability Improvements
 
-* Update Blackhole ERISC FW to v1.6.0
-  * Added eth_flush_icache to flush instruction cache for SYS-1944 - function is 2048 NOP instructions unrolled
-  * New function pointer in eth_api_table: eth_flush_icache_ptr for aforementioned eth_flush_icache
-  * Increased eth code size allocation by 8KB, code now starts at 0x70000
-  * Enhanced training flow and retrain logic, links should now more reliably train up
-  * Enabled interrupts in erisc fw: now snapshots and clears
-  * Added live retraining when check_link_status() detects link down
-  * ETH msg LINK_UP_CHECK: fast check to only update rx_link_up field of eth_live_status
-* Setup FW table to lower ETH train speeds for Galaxy products to 200G, other products stay 400G
+* boards: tt_blackhole: p150c: correct tdp_limit & tdc_limits
+* scripts: recover-blackhole: add recovery bundle scripting in-tree
+* patches: Fix smbus PEC correction patch
+* ci: workflows: hardware-long: update metal container version and test p300a
+* app: dmc: Move MFD, PWM and sensor configs to prj.conf
+* scripts: tooling: vuart: report error if card reads as `0xffff_ffff`
 
-[comment]: <> (H1 Security vulnerabilities fixed?)
+<!-- H1 Security vulnerabilities fixed? -->
 
-[comment]: <> (H2 API Changes, if applicable)
+<!-- H2 API Changes, if applicable -->
 
-[comment]: <> (H3 Removed APIs, H3 Deprecated APIs, H3 New APIs, if applicable)
+<!-- H3 Removed APIs, H3 Deprecated APIs, H3 New APIs, if applicable -->
 
-[comment]: <> (UL PCIe)
-[comment]: <> (UL DDR)
-[comment]: <> (UL Ethernet)
-[comment]: <> (UL Telemetry)
-[comment]: <> (UL Debug / Developer Features)
-[comment]: <> (UL Drivers)
-[comment]: <> (UL Libraries)
+<!-- UL PCIe -->
+<!-- UL DDR -->
+<!-- UL Ethernet -->
+<!-- UL Telemetry -->
+<!-- UL Debug / Developer Features -->
 
-[comment]: <> (H2 New Samples, if applicable)
+### Debug / Developer Features
 
-[comment]: <> (UL PCIe)
-[comment]: <> (UL DDR)
-[comment]: <> (UL Ethernet)
-[comment]: <> (UL Telemetry)
-[comment]: <> (UL Debug / Developer Features)
-[comment]: <> (UL Drivers)
-[comment]: <> (UL Libraries)
+* `tt-zephyr-platforms` documentation is now available online at https://docs.tenstorrent.com/tt-zephyr-platforms 🙌🪁
+  * doc: getting_started: move contents from README.md to getting started guide, and publish to HTML
+  * doc: develop: add documentation for tracing
+* ci: build-native: publish tt-console and tt-tracing artifacts
+  * previously, users needed to build these binaries themselves with `make -C scripts/tooling`. Now they are built on every commit.
+* ci: release: ensure build artifacts for all board revisions are in zip
+* scripts: tt_boot_fs: ls: add hexdump functionality when verbose >= 2
+  * this allows us to inspect all contents of TT Boot FS .bin files without breaking out a separate hex editor
+* bh_arc: tt_shell: add shell support
+  * a common location for custom Tenstorrent shell commands
+  * print telemetry data with `telem` sub-command
+  * read (and write) asic state with `asic_state` sub-command
+* app: dmc: enable logging via DMC SMBUS path
+  * first logs to a local ringbuffer, and then data is sent over smbus from DMC to SMC
+  * users should now be able to view DMC logs with `tt-console -c 2`
 
-[comment]: <> (H2 Other Notable Changes, if applicable)
+<!-- UL Drivers -->
 
-[comment]: <> (UL PCIe)
-[comment]: <> (UL DDR)
-[comment]: <> (UL Ethernet)
-[comment]: <> (UL Telemetry)
-[comment]: <> (UL Debug / Developer Features)
-[comment]: <> (UL Drivers)
-[comment]: <> (UL Libraries)
+### Drivers
 
-[comment]: <> (H2 New Boards, if applicable)
+* drivers: sensor: pvt: integrate pvt driver, add tolerance in tests, read efused temperature calibration
+* drivers: smbus: add platform-independent `zephyr,smbus-target` driver (should be upstreamed shortly)
+
+<!-- UL Libraries -->
+
+<!-- H2 New Samples, if applicable -->
+
+<!-- UL PCIe -->
+<!-- UL DDR -->
+<!-- UL Ethernet -->
+<!-- UL Telemetry -->
+<!-- UL Debug / Developer Features -->
+<!-- UL Drivers -->
+<!-- UL Libraries -->
+
+<!-- H2 Other Notable Changes, if applicable -->
+
+<!-- UL PCIe -->
+<!-- UL DDR -->
+<!-- UL Ethernet -->
+<!-- UL Telemetry -->
+<!-- UL Debug / Developer Features -->
+<!-- UL Drivers -->
+<!-- UL Libraries -->
+
+<!-- H2 New Boards, if applicable -->
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v18.9.0 release can be found in [v18.10 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.10.md).
+An overview of required and recommended changes to make when migrating from the previous v18.10.0 release can be found in [v18.11 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-18.11.md).
 
 ## Full ChangeLog
 
-The full ChangeLog from the previous v18.9.0 release can be found at the link below.
+The full ChangeLog from the previous v18.10.0 release can be found at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.9.0...v18.10.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v18.10.0...v18.11.0
 
 ## Experiments
 
