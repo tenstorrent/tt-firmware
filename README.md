@@ -24,7 +24,7 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-19.3.0.fwbundle`](fw_pack-19.3.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-19.3.1.fwbundle`](fw_pack-19.3.1.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
@@ -32,7 +32,7 @@ These release notes are also published in HTML at the URL below.
 
 https://docs.tenstorrent.com/tt-zephyr-platforms/release/release-notes-19.3.html
 
-We are pleased to announce the release of TT Zephyr Platforms firmware version 19.3.0 🥳🎉.
+We are pleased to announce the release of TT Zephyr Platforms firmware version 19.3.1 🥳🎉.
 
 Major enhancements with this release include:
 
@@ -46,7 +46,6 @@ Major enhancements with this release include:
 * Support BAR4 resizing
 * New ARC message for blinking the board fault LED for board identification purposes
 * New firmware bundle for Debian
-* Improved GDDR bandwidth utilization
 
 ### Drivers
 
@@ -78,7 +77,7 @@ An overview of required and recommended changes to make when migrating from the 
 
 The full ChangeLog from the previous v19.2.0 release can be found at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.2.0...v19.3.0
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.2.0...v19.3.1
 
 
 ## Experiments
