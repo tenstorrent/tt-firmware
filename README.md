@@ -24,60 +24,83 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-19.3.1.fwbundle`](fw_pack-19.3.1.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-19.4.0.fwbundle`](fw_pack-19.4.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
 These release notes are also published in HTML at the URL below.
 
-https://docs.tenstorrent.com/tt-zephyr-platforms/release/release-notes-19.3.html
+https://docs.tenstorrent.com/tt-zephyr-platforms/release/release-notes-19.4.html
 
-We are pleased to announce the release of TT Zephyr Platforms firmware version 19.3.1 🥳🎉.
+We are pleased to announce the release of TT Zephyr Platforms firmware version 19.4.0 🥳🎉.
 
 Major enhancements with this release include:
 
-### New and Experimental Features
-
-* Update Blackhole ERISC FW to v1.7.0
-  * ETH msg DYNAMIC_NOC_INIT: Initialize dynamic NOC state for the ethernet core
-* Doppler Power Management
-  * Low-latency power management optimizing bursty workloads on p100a and p150* boards
-  * 100 kHz tick rate, switched to a tick-less kernel
-* Support BAR4 resizing
-* New ARC message for blinking the board fault LED for board identification purposes
-* New firmware bundle for Debian
-
-### Drivers
-
-* ``snps,designware-dma-arc-hs``: integrated ARC DMA driver into codebase
-  * ARC DMA driver follows the upstream Zephyr DMA driver API
+## What's Changed
 
 ### Stability Improvements
 
-* Update Blackhole ERISC FW to v1.7.1
-  * Enable all TX/RXQ to be in packet mode after initial training for SYS-2294
-  * Implement NOC counters in L1 for SYS-2489
-  * Fixed left vs right chip logic in manual EQ override for P300
-  * Changed default training mode back to ANLT for P150s and P300 on-PCB traces
-  * Fixed bug that clears live status counters unnecessarily
-  * Removed BIST check altogether from SerDes init sequence
-  * Minimized SerDes access during retraining to reduce NOC traffic
-  * Improve one sided reset and retrain logic for ANLT
-  * Reduced ETH training timeouts
-* Fixed a potential hang when Tensix is generating NOC traffic to idle GDDR
-* Added more tests for ARC and I2C messaging
-* Made tensix idle before clock gating in our reset flows
-  * More graceful cleanup in cases of crashes, and more robust power down flows
+* Update Wormhole FW blob
+  * ERISC FW 6.7.3.0
+    * Fix retrain hangs with Active Cables
+    * Adjust DFE value to improve BER on WH UBB QSFP ports
+    * Link quality improvements to non-retimer long trace on WH UBB
+    * Updated retraining logic to set train_status to LINK_TRAIN_TRAINING when entering into retraining
+    * Remove link_training_fw_phony debug feature from eth_init to free up more space
+  * Switch WH FW over to Zephyr ARC toolchain 0.17.4
+  * Fix BSS to be 0-initialized
+    * Causes telemetry `TAG_TIMER_HEARTBEAT` to start at 0 upon reset
+  * GDDR improvement for WH Galaxy
+    * Increase read latency from 23 to 25 for 14G
+    * Explicitly disable EDC tracking
+  * Add vendor-specific GDDR settings and report GDDR vendor
+* Re-release MRISC FW 2.11
+  * Reduce Galaxy datarate to 14G to address regression in FW bundle v19.3.0
+  * Reapply memory bandwidth utilization improvements to all board types
+
+### Drivers
+
+* Fix SMBus cancel/uncancel interface
+  * Driver-specific implementations are now properly called
+  * Cancel state is now properly taken into account when starting a transaction, which fixes some PCIe enumeration issues
+
+### Libraries
+
+* BH ARC library improvements
+  * AICLK power management enhancements
+    * Apply AICLK busy state from GO_BUSY and POWER messages for legacy application compatibility
+    * Track last BUSY/IDLE message received and apply AICLK state based on both that and power settings
+    * Extended native simulation support for aiclk_ppm initialization
+  * Message queue improvements
+    * Add doxygen documentation and structured access for ASIC state messages (TT_SMC_MSG_ASIC_STATE0 and TT_SMC_MSG_ASIC_STATE3)
+    * Add doxygen documentation and structured access for TT_SMC_MSG_TEST
+    * Code formatting improvements (clang-format)
+  * Power management logging improvements
+    * Condense noisy prints in bh_power into a single print statement
+
+### Debug / Developer Features
+
+* Scripts and tooling improvements
+  * `tt_bootstrap`: Add support for erasing flash with `west flash -r tt_bootstrap --erase`
+  * `vuart`: Open file descriptor with O_APPEND flag to prevent power-on when opening console
+  * Add `update_versions.sh` script to upgrade versions of SMC, DMC, and FW during the release process
+
+### Other Notable Changes
+
+* Documentation
+  * Update release process documentation to use version update script
+  * Add firmware signing key conflicts guide explaining how to move from a production-signed firmware to a development-signed firmware (v19.0.0+)
+
 
 ## Migration guide
 
-An overview of required and recommended changes to make when migrating from the previous v19.2.0 release can be found in [v19.3 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-19.3.md).
+An overview of required and recommended changes to make when migrating from the previous v19.3.0 release can be found in [v19.4 Migration Guide](https://github.com/tenstorrent/tt-zephyr-platforms/tree/main/doc/release/migration-guide-19.4.md).
 
 ## Full ChangeLog
 
-The full ChangeLog from the previous v19.2.0 release can be found at the link below.
+The full ChangeLog from the previous v19.3.0 release can be found at the link below.
 
-https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.2.0...v19.3.1
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.3.0...v19.4.0
 
 
 ## Experiments
