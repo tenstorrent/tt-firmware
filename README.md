@@ -24,9 +24,26 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-19.4.0.fwbundle`](fw_pack-19.4.0.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-19.4.1.fwbundle`](fw_pack-19.4.1.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
+
+## v19.4.1
+
+This is a patch release on top of v19.4.0. Release notes for v19.4.0 are included below for reference.
+
+### Stability Improvements
+
+* Update Wormhole FW blob to revert ERISC FW to 6.7.2.0
+  * Due to ETH training instability on WH Galaxy with ERISC FW 6.7.3.0
+
+### Full ChangeLog
+
+The full ChangeLog from the previous v19.4.0 release can be found at the link below.
+
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.4.0...v19.4.1
+
+## v19.4.0
 
 These release notes are also published in HTML at the URL below.
 
