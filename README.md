@@ -24,13 +24,26 @@ If you are interested in the extent that applications interact with this firmwar
 
 | Firmware | Description |
 | --- | --- |
-| [`fw_pack-19.4.1.fwbundle`](fw_pack-19.4.1.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
+| [`fw_pack-19.4.2.fwbundle`](fw_pack-19.4.2.fwbundle) | is a package containing the  combined firmware image to flash Grayskull(gs),  Wormhole(wh) and  Blackhole(bh) boards.|
 
 ## Release Notes
 
-## v19.4.1
+## v19.4.2
 
-This is a patch release on top of v19.4.0. Release notes for v19.4.0 are included below for reference.
+This is a patch release on top of v19.4.0. Release notes for v19.4.0 and v19.4.1 are included below for reference.
+
+### Bug Fixes
+
+* Revert backward-incompatible message interface changes to `READ_{TS,PD,VM}` introduced in v19.1.0
+* Do not apply MRISC PHY powerdown to BH Galaxy due to data errors with the feature enabled
+
+### Full ChangeLog
+
+The full ChangeLog from the previous v19.4.1 release can be found at the link below.
+
+https://github.com/tenstorrent/tt-zephyr-platforms/compare/v19.4.1...v19.4.2
+
+## v19.4.1
 
 ### Stability Improvements
 
