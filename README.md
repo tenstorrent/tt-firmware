@@ -6,7 +6,7 @@
 > 
 > Please visit the new repository for the latest firmware releases, updates, and to contribute or report issues.
 
-## Official Repository
+## Legacy Repository (Archived)
 
 [https://github.com/tenstorrent/tt-firmware](https://github.com/tenstorrent/tt-firmware) (**ARCHIVED**)
 
