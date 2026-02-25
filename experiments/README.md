@@ -1,8 +1,8 @@
 # tt-firmware - experiments
 
-> **⚠️ ARCHIVED: This repository is now archived.**
+> **⚠️ ARCHIVED: This repository is no longer maintained and is now archived.**
 > 
-> **All future firmware development has moved to: [tenstorrent/tt-system-firmware](https://github.com/tenstorrent/tt-system-firmware)**
+> **No new releases will be made from this repository. All future firmware development and releases have moved to: [tenstorrent/tt-system-firmware](https://github.com/tenstorrent/tt-system-firmware).**
 
 Firmware bundles built off of the latest available firmware release with minor modifications to address specific issues.
 
